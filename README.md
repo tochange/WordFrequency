@@ -158,56 +158,6 @@ public class JavaTest<T> {
         }
     }
 
-//    public static void count() throws Exception {
-//
-//
-//        Runtime run = Runtime.getRuntime();
-//        run.gc();
-//        long startMem = run.totalMemory() - run.freeMemory();
-////        System.out.println("memory> total:" + run.totalMemory() + " free:" + run.freeMemory() + " used:" + startMem);
-//
-//
-//        File file = new File("/Users/joey/Desktop/wordFrequencyTest");
-//        FileReader fileReader = new FileReader(file);
-//        BufferedReader reader = new BufferedReader(fileReader);
-//        StringBuilder builder = new StringBuilder();
-//        Pattern pattern = Pattern.compile("[a-zA-Z]+");
-//        String line = "";
-//        Map<String, Integer> map = new HashMap<String, Integer>();
-//        while ((line = reader.readLine()) != null) {
-//            builder.append(line);
-//        }
-//        String content = builder.toString();
-//        Matcher matcher = pattern.matcher(content);
-//        String word = "";
-//        Integer times = 0;
-//        while (matcher.find()) {
-//            word = matcher.group();
-//            if (map.containsKey(word)) {
-//                times = map.get(word);
-//                map.put(word, times + 1);
-//            } else {
-//                map.put(word, 1);
-//            }
-//        }
-//        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(
-//                map.entrySet());// put Entry to List
-//        Compare compare = new Compare();//rewrite Comparator
-//        for (int i = 0; i < 5; i++) {
-//            Map.Entry<String, Integer> entry = Collections.max(list, compare);// max
-//            String key = entry.getKey();
-//            Integer value = entry.getValue();
-//            int index = list.indexOf(entry);//get max's index
-////            System.out.println(key + " " + value);
-//            list.remove(index);//remove max
-//        }
-//
-//
-//        long endMem = run.totalMemory() - run.freeMemory();
-////        System.out.println("memory> total:" + run.totalMemory() + " free:" + run.freeMemory() + " used:" + endMem);
-//        System.out.println("memory> coast:" + (endMem - startMem));
-//    }
-
     static class Compare implements Comparator<Map.Entry<MyString, Integer>> {
         public int compare(Map.Entry<MyString, Integer> left, Map.Entry<MyString, Integer> right) {
             return left.getValue().compareTo(right.getValue());
