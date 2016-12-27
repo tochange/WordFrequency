@@ -3,6 +3,37 @@
 ① 单词不区分大小写,比如：The和the是相同的单词.
 ② 按照英文书写习惯,过长的单词遇到换行时,会加入连字符“-”.比如：“international”遇到换行时可能会写为“intern-ational”,统计时要注意除去连字符.
 
+
+
+    private void heapify(int i) {
+        // 获取左右结点的数组下标
+        int l = left(i);
+        int r = right(i);
+
+        // 这是一个临时变量，表示 跟结点、左结点、右结点中最小的值的结点的下标
+        int smallest = i;
+
+        // 存在左结点，且左结点的值小于根结点的值
+        if (l < data.length && data[l] < data[i])
+            smallest = l;
+
+        // 存在右结点，且右结点的值小于以上比较的较小值
+        if (r < data.length && data[r] < data[smallest])
+            smallest = r;
+
+        // 左右结点的值都大于根节点，直接return，不做任何操作
+        if (i == smallest)
+            return;
+
+        // 交换根节点和左右结点中最小的那个值，把根节点的值替换下去
+        swap(i, smallest);
+
+        // 由于替换后左右子树会被影响，所以要对受影响的子树再进行heapify
+        heapify(smallest);
+    }
+    
+    
+    
 package com.example;
 
 import java.io.BufferedReader;
